@@ -23,6 +23,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  adaptive_theme: ^1.1.0
+  flutter_vector_icons: ^0.3.0
+  carousel_slider: ^3.0.0
+  cached_network_image: ^2.5.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -45,7 +49,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
+  assets:
+    - assets/images/pexels-jeremy-bishop-2923591.jpg
+    - assets/images/pexels-3.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -60,7 +66,26 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    # - family: Zapfino
+      # fonts:
+        # - asset: assets/fonts/Zapfino/ZapfinoExtraLT-Alternate.otf
+        # - asset: assets/fonts/Zapfino/ZapfinoExtraLT-Four.otf
+        # - asset: assets/fonts/Zapfino/ZapfinoExtraLT-Ligatures.otf
+        # - asset: assets/fonts/Zapfino/ZapfinoExtraLT-One.otf
+        # - asset: assets/fonts/Zapfino/ZapfinoExtraLT-Ornaments.otf
+        # - asset: assets/fonts/Zapfino/ZapfinoExtraLT-SmallCaps.otf
+        # - asset: assets/fonts/Zapfino/ZapfinoExtraLT-Three.otf
+        # - asset: assets/fonts/Zapfino/ZapfinoExtraLT-Two.otf
+        # - asset: assets/fonts/Zapfino/ZapfinoExtraLTPro.otf
+        # - asset: assets/fonts/Zapfino/ZapfinoForteT-Alternate.otf
+        # - asset: assets/fonts/Zapfino/ZapfinoForteT-One.otf
+        # - asset: assets/fonts/Zapfino/ZapfinoForteTPro.otf
+
+    - family: SinhalaMN
+      fonts:
+        - asset: assets/fonts/SinhalaMN.ttf
+
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
