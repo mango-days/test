@@ -1,4 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:untitled/bloc_provider.dart';
+import 'package:untitled/drawer_categories.dart';
+import 'package:untitled/drawer_orders.dart';
 import 'package:untitled/home_categories.dart';
 import 'package:untitled/home_hero_slider.dart';
 import 'package:untitled/home_trend.dart';
@@ -24,11 +29,30 @@ class _MyAppState extends State<MyApp> {
     "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80"
   ];
 
+  StreamSubscription subscription_drawer_two;
+
+  var drawerOption = 0;
+
+  List<Widget> drawerList= [
+    My_Drawer(),
+    My_Drawer_two(),
+    My_Drawer_orders()
+  ];
+
+  @override
+  void didChangeDependencies() {
+    subscription_drawer_two?.cancel();
+    subscription_drawer_two = drawerOptionStream.listen((event) {
+      setState(() {
+        drawerOption = event;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double device_width = MediaQuery.of(context).size.width;
     double device_height = MediaQuery.of(context).size.height;
-    var isDrawerOneOpen = false;
     return Container(
       child: Stack(
         fit: StackFit.expand,
@@ -38,16 +62,8 @@ class _MyAppState extends State<MyApp> {
             fit: BoxFit.cover,
           ),
           Scaffold(
-            floatingActionButton: FloatingActionButton(
-              child: Icon(Icons.ac_unit_outlined),
-              onPressed: () {
-                setState(() {
-                  isDrawerOneOpen = !isDrawerOneOpen;
-                });
-              },
-            ),
             backgroundColor: Colors.transparent,
-            drawer: isDrawerOneOpen ? My_Drawer() : My_Drawer(),
+            drawer: drawerList[drawerOption],
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               //foregroundColor: Colors.transparent,

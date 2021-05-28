@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/bloc_provider.dart';
 import 'package:untitled/home.dart';
 
 class My_Drawer extends StatefulWidget {
@@ -11,7 +12,6 @@ class My_Drawer extends StatefulWidget {
 class _My_DrawerState extends State<My_Drawer> {
   @override
   Widget build(BuildContext context) {
-
 
     return Drawer(
       child: ListView(
@@ -99,7 +99,7 @@ class _My_DrawerState extends State<My_Drawer> {
                 SizedBox(height: 10,),
                 InkWell(
                   onTap: () {
-                    //Navigator.of(context).pop();
+                    drawerOptionStreamSink.add(1);
                   },
                   child: Container(
                       color: Colors.white.withOpacity(0.10),
@@ -120,22 +120,27 @@ class _My_DrawerState extends State<My_Drawer> {
                   ),
                 ),
                 SizedBox(height: 10,),
-                Container(
-                    color: Colors.white.withOpacity(0.10),
-                    height: 60,
-                    width: 300,
-                    child: Center(
-                      child: Text(
-                        'Orders',
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.black12.withOpacity(0.30),
-                          fontFamily: 'SinhalaMN',
+                InkWell(
+                  onTap: (){
+                    drawerOptionStreamSink.add(2);
+                  },
+                  child: Container(
+                      color: Colors.white.withOpacity(0.10),
+                      height: 60,
+                      width: 300,
+                      child: Center(
+                        child: Text(
+                          'Orders',
+                          style: TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.black12.withOpacity(0.30),
+                            fontFamily: 'SinhalaMN',
 
+                          ),
                         ),
-                      ),
-                    )
+                      )
+                  ),
                 ),
                 SizedBox(height: 10,),
                 Container(
